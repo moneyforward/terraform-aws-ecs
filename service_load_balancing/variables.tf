@@ -296,3 +296,13 @@ variable "bucket_arn_list" {
   type        = list(string)
   default     = []
 }
+
+variable "load_balancers" {
+  description = "List of load balancer configurations"
+  type = list(object({
+    target_group_arn = string
+    container_name   = string
+    container_port   = number
+    elb_name         = optional(string, "")
+  }))
+}
