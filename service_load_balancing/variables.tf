@@ -306,3 +306,12 @@ variable "load_balancers" {
     elb_name         = optional(string, "")
   }))
 }
+
+variable "placement_constraints" {
+  description = "Placement constraints for the ECS service"
+  type        = list(object({
+    type       = string
+    expression = optional(string)
+  }))
+  default = []
+}

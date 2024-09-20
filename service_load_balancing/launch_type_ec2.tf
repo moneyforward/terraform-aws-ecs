@@ -24,6 +24,14 @@ resource "aws_ecs_service" "main" {
     field = var.placement_strategy_field
   }
 
+  dynamic "placement_constraints" {
+    for_each = var.placement_constraints
+    content {
+      type       = placement_constraints.value.type
+      expression = lookup(placement_constraints.value, "expression", null)
+    }
+  }
+
   load_balancer {
     target_group_arn = var.target_group_arn
     container_name   = var.container_name
