@@ -138,11 +138,6 @@ variable "container_name" {
   default     = ""
 }
 
-variable "container_port" {
-  description = "AWS containers port"
-  default     = ""
-}
-
 variable "container_family" {
   description = "AWS containers family name"
   type        = string
