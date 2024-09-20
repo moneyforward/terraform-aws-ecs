@@ -300,6 +300,7 @@ variable "load_balancers" {
     container_port   = number
     elb_name         = optional(string, "")
   }))
+  default = []
 }
 
 variable "placement_constraints" {
@@ -309,4 +310,9 @@ variable "placement_constraints" {
     expression = optional(string)
   }))
   default = []
+}
+
+variable "health_check_grace_period_seconds" {
+  description = "The grace period to wait before checking the health of an ECS service"
+  default     = 300 #seconds
 }

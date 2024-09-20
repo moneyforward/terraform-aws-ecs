@@ -18,6 +18,7 @@ resource "aws_ecs_service" "main" {
   desired_count                      = var.desired_count
   deployment_maximum_percent         = var.deployment_maximum_percent
   deployment_minimum_healthy_percent = var.deployment_minimum_healthy_percent
+  health_check_grace_period_seconds  = var.health_check_grace_period_seconds
 
   ordered_placement_strategy {
     type  = var.placement_strategy_type
